@@ -1,4 +1,4 @@
-package br.edu.ifpb;
+package br.edu.ifpb.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;

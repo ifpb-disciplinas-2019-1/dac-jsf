@@ -1,7 +1,7 @@
 package br.edu.ifpb.web.jsf;
 
-import br.edu.ifpb.Pessoa;
-import br.edu.ifpb.Pessoas;
+import br.edu.ifpb.domain.Pessoa;
+import br.edu.ifpb.domain.Pessoas;
 import java.io.Serializable;
 import java.util.List;
 //import javax.faces.bean.RequestScoped;

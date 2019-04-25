@@ -1,8 +1,9 @@
-package br.edu.ifpb;
+package br.edu.ifpb.web.jsp;
 
+import br.edu.ifpb.domain.Pessoa;
+import br.edu.ifpb.domain.Pessoas;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
