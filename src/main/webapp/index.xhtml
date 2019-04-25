@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="formulario">
+            <h:inputText id="nome" value="#{controladorDePessoas.pessoa.nome}" class="inputs"/>
+            <h:inputText id="cpf" value="#{controladorDePessoas.pessoa.cpf}"/>
+            <h:commandButton value=">" action="#{controladorDePessoas.salvar()}"/>
+            <h:commandButton value="+" action="#{controladorDePessoas.atualizar()}"/>
+
+
+            <h:dataTable var="pessoa" value="#{controladorDePessoas.todasAsPessoas}">
+                <h:column>
+                    #{pessoa.cpf}
+                </h:column>
+                <h:column>
+                    #{pessoa.nome}
+                </h:column>
+                <h:column>
+                    <h:commandButton value="x" 
+                                     action="#{controladorDePessoas.excluir(pessoa)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="editar" 
+                                     action="#{controladorDePessoas.editar(pessoa)}"/>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
