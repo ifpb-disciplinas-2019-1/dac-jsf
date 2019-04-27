@@ -41,9 +41,9 @@ Caso surja alguma dúvida no desenvolvimento, falar de imediato via [Slack](http
 * **RF01** - Implementar os métodos acessores para as classes `Pessoa` e `Dependente`; 
 * **RF02** - Implementar a classe `PessoasEmMemoria`; 
 * **RF03** - Adaptar a página `edit.xhtml` para o arquivo de template `templateAula.xhtml`; 
-* **RF04** - Criar um Conversor para a classe `Dependente`; *
+* **RF04** - Criar um Conversor para a classe `Dependente`; 
 * **RF05** - Adicionar um `selectOneMenu` na página `edit.xhtml` da pasta __pessoa__. 
-Deve ser possível selecionar um `Dependente` e associar sua instância ao atributo da classe `Pessoa` *
+Deve ser possível selecionar um `Dependente` e associar sua instância ao atributo da classe `Pessoa` 
 ```
 <h:selectOneMenu value="{controladorDePessoas.pessoa.dependente}" 
                  converter="converter.Dependente">
@@ -51,9 +51,9 @@ Deve ser possível selecionar um `Dependente` e associar sua instância ao atrib
                    var="dep" itemLabel="{de.uuid}" />
 </h:selectOneMenu>
 ```
-* **RF06** - Criar as páginas para edição e listagem da entidade `Dependente`; *
-* **RF07** - Criar um Validador para a classe `Dependente`. Serão válidos apenas Dependentes que possuem data de nascimento anterior a data atual e o nome não vazio; *
+* **RF06** - Criar as páginas para edição e listagem da entidade `Dependente`; 
+* **RF07** - Criar um Validador para a classe `Dependente`. Serão válidos apenas Dependentes que possuem data de nascimento anterior a data atual e o nome não vazio; 
 * **RF08** - Atualizar o template para algum outro layout. O ideial seria utilizar alguma biblioteca de componentes como o Materialize, Bootstrap, etc. 
-Contudo, caso prefiram, podem desenvolver sua própria solução; *
-* **RF09** - Criar uma página que permita realizar uma busca por `CPF`; *
-* **RF10** - Criar e Implementar a classe `PessoasEmJDBC` que é uma solução que utiliza a conexão com Banco de Dados. *
+Contudo, caso prefiram, podem desenvolver sua própria solução; 
+* **RF09** - Criar uma página que permita realizar uma busca por `CPF`; 
+* **RF10** - Criar e Implementar a classe `PessoasEmJDBC` que é uma solução que utiliza a conexão com Banco de Dados. 
