@@ -9,18 +9,33 @@ import java.util.Objects;
  */
 public class Pessoa {
 
-    private  String cpf;
-    private  String nome;
-
+    private CPF cpf;
+    private String nome;
+    
+    // novos campos
+    private int id;
+    private Dependente dependente;
+    
+    
     public Pessoa() {
+        this(
+            "",
+            "11122233344"
+        );
     }
 
     public Pessoa(String nome,String cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
+        this(
+            nome,new CPF(cpf)
+        );
     }
 
-    public String getCpf() {
+    public Pessoa(String nome,CPF cpf) {
+        this.cpf = cpf;
+        this.nome = nome;
+    }
+
+    public CPF getCpf() {
         return cpf;
     }
 
@@ -28,7 +43,7 @@ public class Pessoa {
         return nome;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(CPF cpf) {
         this.cpf = cpf;
     }
 
@@ -36,7 +51,6 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    
     @Override
     public String toString() {
         return "{ 'cpf':'" + cpf + "', 'nome': '" + nome + "'}";
@@ -70,7 +84,4 @@ public class Pessoa {
         }
         return true;
     }
-    
-
-    
 }

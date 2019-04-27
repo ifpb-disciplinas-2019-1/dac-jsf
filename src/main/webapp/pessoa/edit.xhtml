@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro</title>
+    </h:head>
+    <h:body>
+        <h:form id="formulario">
+            <h:messages layout="list"/>
+            <h:inputText id="nome" value="#{controladorDePessoas.pessoa.nome}" 
+                         class="inputs"  validatorMessage="Resolva">
+                <f:convertNumber for="nome" />
+            </h:inputText>
+            <h:inputText value="#{controladorDePessoas.pessoa.cpf}"
+                         id="cpf" 
+                         converter="convert.cpf" 
+                         validator="validator.cpf" />
+            <h:commandButton value=">" action="#{controladorDePessoas.salvar()}"/>
+            <h:commandButton value="+" action="#{controladorDePessoas.atualizar()}"/>
+        </h:form>
+    </h:body>
+</html>
+
+
+
+<!--
+<h:selectOneMenu value="{controladorDePessoas.pessoa.endereco}" 
+                 converter="converter.Dependente">
+    <f:selectItems value="{controladorDePessoas.listarTodosOsDependentes()}"
+                   var="dep" itemLabel="{de.uuid}" />
+</h:selectOneMenu>
+<h:commandButton value="salvar" action="#controladorDePessoas.salvar()}" rendered="{not controladorDePessoas.editando}"/>
+-->

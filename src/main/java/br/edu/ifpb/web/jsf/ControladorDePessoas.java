@@ -4,9 +4,11 @@ import br.edu.ifpb.domain.Pessoa;
 import br.edu.ifpb.domain.Pessoas;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 //import javax.faces.bean.RequestScoped;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 
 /**
@@ -26,20 +28,29 @@ public class ControladorDePessoas implements Serializable {
 //    @Inject
     private Pessoas service = new Pessoas();
 
+    //actionListeners
+//    public void exemplo(ActionEvent ev) {
+//        
+//    }
     public String salvar() {
         this.service.nova(pessoa);
         this.pessoa = new Pessoa();
-        return null; //        return "index.xhtml";
+//        return null; //        return "index.xhtml";
+//        return "list";
+        return "list.xhtml?faces-redirect=true";
     }
+
     public String atualizar() {
         this.service.atualizar(pessoa);
         this.pessoa = new Pessoa();
         return null;
     }
+
     public String excluir(Pessoa pessoa) {
         this.service.excluir(pessoa);
         return null;
     }
+
     public String editar(Pessoa pessoa) {
         this.pessoa = pessoa;
         return null;
