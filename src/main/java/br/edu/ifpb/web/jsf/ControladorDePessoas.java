@@ -2,13 +2,12 @@ package br.edu.ifpb.web.jsf;
 
 import br.edu.ifpb.domain.Pessoa;
 import br.edu.ifpb.domain.Pessoas;
+import br.edu.ifpb.infra.memory.PessoasEmMemoria;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 //import javax.faces.bean.RequestScoped;
 
 import javax.enterprise.context.SessionScoped;
-import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 
 /**
@@ -26,7 +25,7 @@ public class ControladorDePessoas implements Serializable {
     private Pessoa pessoa = new Pessoa();
 
 //    @Inject
-    private Pessoas service = new Pessoas();
+    private Pessoas service = new PessoasEmMemoria();
 
     //actionListeners
 //    public void exemplo(ActionEvent ev) {

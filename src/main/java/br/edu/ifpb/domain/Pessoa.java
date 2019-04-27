@@ -9,14 +9,11 @@ import java.util.Objects;
  */
 public class Pessoa {
 
-    private CPF cpf;
-    private String nome;
-    
-    // novos campos
     private int id;
+    private String nome;
+    private CPF cpf;
     private Dependente dependente;
-    
-    
+
     public Pessoa() {
         this(
             "",
@@ -59,8 +56,10 @@ public class Pessoa {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.cpf);
-        hash = 31 * hash + Objects.hashCode(this.nome);
+        hash = 17 * hash + Objects.hashCode(this.cpf);
+        hash = 17 * hash + Objects.hashCode(this.nome);
+        hash = 17 * hash + this.id;
+        hash = 17 * hash + Objects.hashCode(this.dependente);
         return hash;
     }
 
@@ -76,12 +75,19 @@ public class Pessoa {
             return false;
         }
         final Pessoa other = (Pessoa) obj;
-        if (!Objects.equals(this.cpf,other.cpf)) {
+        if (this.id != other.id) {
             return false;
         }
         if (!Objects.equals(this.nome,other.nome)) {
             return false;
         }
+        if (!Objects.equals(this.cpf,other.cpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.dependente,other.dependente)) {
+            return false;
+        }
         return true;
     }
+
 }

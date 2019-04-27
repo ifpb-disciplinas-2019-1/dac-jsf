@@ -1,5 +1,7 @@
 package br.edu.ifpb.domain;
 
+import java.time.LocalDate;
+
 /**
  * @author Ricardo Job
  * @mail ricardo.job@ifpb.edu.br
@@ -9,6 +11,7 @@ public class Dependente {
 
     private String uuid;
     private String nome;
+    private LocalDate dataDeNascimento;
 
     public Dependente() {
     }

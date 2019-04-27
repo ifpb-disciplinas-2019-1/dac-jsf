@@ -2,6 +2,7 @@ package br.edu.ifpb.web.jsp;
 
 import br.edu.ifpb.domain.Pessoa;
 import br.edu.ifpb.domain.Pessoas;
+import br.edu.ifpb.infra.memory.PessoasEmMemoria;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ public class ControladorDePessoas extends HttpServlet {
     protected void doGet(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         Pessoas service = (Pessoas) req.getSession().getAttribute("pessoas");
         if (service == null) {
-            service = new Pessoas();
+            service = new PessoasEmMemoria();
         }
         resp.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = resp.getWriter()) {
@@ -53,7 +54,7 @@ public class ControladorDePessoas extends HttpServlet {
         //executar a lógica
         Pessoas service = (Pessoas) request.getSession().getAttribute("pessoas");
         if (service == null) {
-            service = new Pessoas();
+            service = new PessoasEmMemoria();
         }
         service.nova(pessoa);
         request.getSession().setAttribute("pessoas",service);
