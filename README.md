@@ -38,9 +38,9 @@ Caso surja alguma dúvida no desenvolvimento, falar de imediato via [Slack](http
 
 ## Requisitos
 
-* **RF01** - Implementar os métodos acessores para as classes `Pessoa` e `Dependente`; *
-* **RF02** - Implementar a classe `PessoasEmMemoria`; *
-* **RF03** - Adaptar a página `edit.xhtml` para o arquivo de template `templateAula.xhtml`; *
+* **RF01** - Implementar os métodos acessores para as classes `Pessoa` e `Dependente`; 
+* **RF02** - Implementar a classe `PessoasEmMemoria`; 
+* **RF03** - Adaptar a página `edit.xhtml` para o arquivo de template `templateAula.xhtml`; 
 * **RF04** - Criar um Conversor para a classe `Dependente`; *
 * **RF05** - Adicionar um `selectOneMenu` na página `edit.xhtml` da pasta __pessoa__. 
 Deve ser possível selecionar um `Dependente` e associar sua instância ao atributo da classe `Pessoa` *
