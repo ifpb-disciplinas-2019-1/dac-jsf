@@ -1,14 +1,32 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <h:form id="formulario">
-            <h:inputText id="nome" value="#{controladorDePessoas.pessoa.nome}" class="inputs"/>
-            <h:inputText id="cpf" value="#{controladorDePessoas.pessoa.cpf}"/>
+            <h:messages layout="list"/>
+            <h:inputText id="nome" 
+                         value="#{controladorDePessoas.pessoa.nome}" 
+                         class="inputs"  
+                         validatorMessage="Resolva">
+                <f:convertNumber for="nome" />
+            </h:inputText>
+            <h:inputText value="#{controladorDePessoas.pessoa.cpf}"
+                         id="cpf" 
+                         converter="converter.cpf" 
+                         validator="validator.cpf" />
+            <h:selectOneMenu value="#{controladorDePessoas.pessoa.dependente}" 
+                             converter="converter.Dependente"
+                             validator="validator.Dependente"
+                             id="dep">
+                <f:selectItems value="#{controladorDePessoas.listarTodosOsDependentes()}"
+                               var="dep" itemLabel="#{dep.nome}" />
+            </h:selectOneMenu>
+
             <h:commandButton value=">" action="#{controladorDePessoas.salvar()}"/>
             <h:commandButton value="+" action="#{controladorDePessoas.atualizar()}"/>
 
