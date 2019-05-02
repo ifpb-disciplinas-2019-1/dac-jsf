@@ -1,7 +1,10 @@
 package br.edu.ifpb.infra.memory;
 
 import br.edu.ifpb.domain.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,30 +18,46 @@ public class PessoasEmMemoria implements Pessoas {
 
     public void nova(Pessoa pessoa) {
         //TODO: implementar
+        this.pessoas.add(pessoa);
     }
 
     public List<Pessoa> todas() {
         //TODO: implementar
-        return null;
+        return Collections.unmodifiableList(pessoas);
     }
 
     public void excluir(Pessoa pessoa) {
         //TODO: implementar
+        this.pessoas.remove(pessoa);
     }
 
     public void atualizar(Pessoa pessoa) {
         //TODO: implementar
+        this.pessoas
+            .removeIf(p -> p.getId() == pessoa.getId());
+        this.pessoas.add(pessoa);
+
     }
 
     @Override
     public List<Dependente> todosOsDepentendes() {
         //TODO: implementar
-        return null;
+        return Arrays.asList(
+            new Dependente("123","Maria",LocalDate.now().plusDays(1)),
+            new Dependente("124","José",null),
+            new Dependente("125","João",LocalDate.now().minusDays(1)),
+            new Dependente("126","Mariana",LocalDate.now()) 
+        );
     }
 
     @Override
     public Dependente localizarDependenteComId(String uuid) {
         //TODO: implementar
-        return null;
+
+        return todosOsDepentendes()
+            .stream()
+            .filter(p -> p.getUuid().equals(uuid))
+            .findFirst()
+            .orElse(Dependente.fake());
     }
 }

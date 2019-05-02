@@ -53,13 +53,29 @@ public class Pessoa {
         return "{ 'cpf':'" + cpf + "', 'nome': '" + nome + "'}";
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Dependente getDependente() {
+        return dependente;
+    }
+
+    public void setDependente(Dependente dependente) {
+        this.dependente = dependente;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.cpf);
-        hash = 17 * hash + Objects.hashCode(this.nome);
-        hash = 17 * hash + this.id;
-        hash = 17 * hash + Objects.hashCode(this.dependente);
+        int hash = 3;
+        hash = 67 * hash + this.id;
+        hash = 67 * hash + Objects.hashCode(this.nome);
+        hash = 67 * hash + Objects.hashCode(this.cpf);
+        hash = 67 * hash + Objects.hashCode(this.dependente);
         return hash;
     }
 
@@ -89,5 +105,8 @@ public class Pessoa {
         }
         return true;
     }
+    
+    
+ 
 
 }

@@ -1,4 +1,4 @@
-package br.edu.ifpb.infra.jsf;
+package br.edu.ifpb.infra.jsf.validator;
 
 import br.edu.ifpb.domain.CPF;
 import java.util.Arrays;

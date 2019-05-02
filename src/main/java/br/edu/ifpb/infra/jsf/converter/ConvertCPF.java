@@ -1,4 +1,4 @@
-package br.edu.ifpb.infra.jsf;
+package br.edu.ifpb.infra.jsf.converter;
 
 import br.edu.ifpb.domain.CPF;
 import javax.faces.component.UIComponent;
@@ -11,7 +11,7 @@ import javax.faces.convert.FacesConverter;
  * @mail ricardo.job@ifpb.edu.br
  * @since 26/04/2019, 08:37:43
  */
-@FacesConverter(value = "convert.cpf")
+@FacesConverter(value = "converter.cpf")
 public class ConvertCPF implements Converter {
 
     @Override
