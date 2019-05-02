@@ -6,10 +6,10 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="templateAula.xhtml">
     <ui:define name="centro">
-        <h:form id="formulario">
+        <h:form id="formulario" >
             <h:messages layout="list"/>
             <h:inputText id="nome" value="#{controladorDePessoas.pessoa.nome}" 
-                         class="inputs"  validatorMessage="Resolva">
+                         class="campo"  validatorMessage="Resolva" >
                 <f:convertNumber for="nome" />
             </h:inputText>
             <h:inputText value="#{controladorDePessoas.pessoa.cpf}"
@@ -21,15 +21,14 @@
                              validator="validator.Dependente"
                              id="dep">
                 <f:selectItems value="#{controladorDePessoas.listarTodosOsDependentes()}"
-                               var="dep" itemLabel="#{dep.nome}" />
+                               var="dep" itemLabel="#{dep.nome}"  />
             </h:selectOneMenu>
             <h:commandButton value=">" action="#{controladorDePessoas.salvar()}"/>
             <h:commandButton value="+" action="#{controladorDePessoas.atualizar()}"/>
-        </h:form>
+        </h:form> 
+
     </ui:define>
 </ui:composition>
-
-
 <!--
 <h:selectOneMenu value="{controladorDePessoas.pessoa.dependente}" 
                  converter="converter.Dependente">

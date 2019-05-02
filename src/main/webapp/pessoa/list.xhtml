@@ -21,6 +21,10 @@
                             #{pessoa.nome}
                     </h:column>
                     <h:column>
+                        <f:facet name="header">Dependente</f:facet>
+                            #{pessoa.dependente.nome}
+                    </h:column>
+                    <h:column>
                         <h:commandButton value="x" action="#{controladorDePessoas.excluir(pessoa)}" 
                                          class="btn-floating"/>
                     </h:column>

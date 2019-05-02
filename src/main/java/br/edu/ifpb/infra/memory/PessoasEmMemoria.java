@@ -1,8 +1,10 @@
 package br.edu.ifpb.infra.memory;
 
 import br.edu.ifpb.domain.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,29 +31,35 @@ public class PessoasEmMemoria implements Pessoas {
 
     public void nova(Pessoa pessoa) {
         //TODO: implementar
+        this.pessoas.add(pessoa);
     }
 
     public List<Pessoa> todas() {
         //TODO: implementar
-        return this.pessoas;
+        return Collections.unmodifiableList(pessoas);
+
     }
 
     public void excluir(Pessoa pessoa) {
         //TODO: implementar
+        this.pessoas.remove(pessoa);
     }
 
     public void atualizar(Pessoa pessoa) {
         //TODO: implementar
+        this.pessoas
+            .removeIf(p -> p.getId() == pessoa.getId());
+        this.pessoas.add(pessoa);
+
     }
 
     @Override
     public List<Dependente> todosOsDepentendes() {
-
         return Arrays.asList(
-            new Dependente("5366b487-bf9e-46c9-aac1-99e96dcea70b","Job"),
-            new Dependente("db9aee2d-811b-42e8-945a-5d10a4560f33","Antonio"),
-            new Dependente("21ce7508-5a9e-4f8b-9a41-b497f91c79bb","Mariana"),
-            new Dependente("e41f0a5e-095e-4f4a-9d60-f6fd5465965d","Ana")
+            new Dependente("5366b487-bf9e-46c9-aac1-99e96dcea70b","Job",LocalDate.now().plusDays(1)),
+            new Dependente("db9aee2d-811b-42e8-945a-5d10a4560f33","Antonio",null),
+            new Dependente("21ce7508-5a9e-4f8b-9a41-b497f91c79bb","Mariana",LocalDate.now().minusDays(1)),
+            new Dependente("e41f0a5e-095e-4f4a-9d60-f6fd5465965d","Ana",LocalDate.now())
         );
     }
 

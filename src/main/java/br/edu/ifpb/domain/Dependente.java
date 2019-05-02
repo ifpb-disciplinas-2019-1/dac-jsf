@@ -2,7 +2,6 @@ package br.edu.ifpb.domain;
 
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * @author Ricardo Job
@@ -12,38 +11,26 @@ import java.util.UUID;
 public class Dependente {
 
     private String uuid;
-
     private String nome;
     private LocalDate dataDeNascimento;
 
     public Dependente() {
-
     }
-
-    public Dependente(String nome) {
-        this(
-            UUID.randomUUID().toString(),
-            nome,
-            LocalDate.now()
-        );
-
-    }
-    public static Dependente fake(){
-        return new Dependente("-1","-1",LocalDate.MIN);
-    }
-    
 
     public Dependente(String uuid,String nome) {
         this(
-            uuid,
-            nome,
-            LocalDate.now()
+            uuid,nome,LocalDate.now()
         );
     }
+
     public Dependente(String uuid,String nome,LocalDate dataDeNascimento) {
         this.uuid = uuid;
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
+    }
+
+    public static Dependente fake() {
+        return new Dependente("-1","-1");
     }
 
     public String getUuid() {
@@ -70,9 +57,23 @@ public class Dependente {
         this.dataDeNascimento = dataDeNascimento;
     }
 
+    public boolean naoValido() {
+        return nomeVazio() || nascimentoAnterior();
+    }
+
+    public boolean nomeVazio() {
+        return this.nome == null || this.nome.trim().equals("");
+    }
+
+    public boolean nascimentoAnterior() {
+        return this.dataDeNascimento == null
+            || this.dataDeNascimento.isEqual(LocalDate.now())
+            || this.dataDeNascimento.isAfter(LocalDate.now());
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 3;
         hash = 89 * hash + Objects.hashCode(this.uuid);
         hash = 89 * hash + Objects.hashCode(this.nome);
         hash = 89 * hash + Objects.hashCode(this.dataDeNascimento);
@@ -103,9 +104,4 @@ public class Dependente {
         return true;
     }
 
-    public boolean naoValido() {
-        return false;
-    }
-
-    
 }

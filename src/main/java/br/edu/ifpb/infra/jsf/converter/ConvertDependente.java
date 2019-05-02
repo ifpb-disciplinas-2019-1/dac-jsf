@@ -1,6 +1,5 @@
 package br.edu.ifpb.infra.jsf.converter;
 
-import br.edu.ifpb.domain.CPF;
 import br.edu.ifpb.domain.Dependente;
 import br.edu.ifpb.domain.Pessoas;
 import br.edu.ifpb.infra.memory.PessoasEmMemoria;
@@ -24,8 +23,16 @@ public class ConvertDependente implements Converter {
         FacesContext context,
         UIComponent component,
         String value) {
-        return service.localizarDependenteComId(value);
+        if (value == null) {
+            return null;
         }
+
+        Dependente dep = this.service
+            .localizarDependenteComId(value);
+        return dep;
+//return new Dependente(value,"");
+
+    }
 
     @Override
     public String getAsString(
@@ -33,9 +40,11 @@ public class ConvertDependente implements Converter {
         UIComponent component,
         Object value) {
 
+        if (value == null) {
+            return null;
+        }
         Dependente dep = (Dependente) value;
         return dep.getUuid();
-
     }
 
 }
