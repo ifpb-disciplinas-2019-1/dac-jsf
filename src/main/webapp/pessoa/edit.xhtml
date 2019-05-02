@@ -15,8 +15,15 @@
             </h:inputText>
             <h:inputText value="#{controladorDePessoas.pessoa.cpf}"
                          id="cpf" 
-                         converter="convert.cpf" 
+                         converter="converter.cpf" 
                          validator="validator.cpf" />
+            <h:selectOneMenu value="#{controladorDePessoas.pessoa.dependente}" 
+                             converter="converter.Dependente"
+                             validator="validator.Dependente"
+                             id="dep">
+                <f:selectItems value="#{controladorDePessoas.listarTodosOsDependentes()}"
+                               var="dep" itemLabel="#{dep.nome}" />
+            </h:selectOneMenu>
             <h:commandButton value=">" action="#{controladorDePessoas.salvar()}"/>
             <h:commandButton value="+" action="#{controladorDePessoas.atualizar()}"/>
         </h:form>

@@ -1,5 +1,6 @@
 package br.edu.ifpb.web.jsf;
 
+import br.edu.ifpb.domain.Dependente;
 import br.edu.ifpb.domain.Pessoa;
 import br.edu.ifpb.domain.Pessoas;
 import br.edu.ifpb.infra.memory.PessoasEmMemoria;
@@ -37,6 +38,9 @@ public class ControladorDePessoas implements Serializable {
 //        return null; //        return "index.xhtml";
 //        return "list";
         return "list.xhtml?faces-redirect=true";
+    }
+    public List<Dependente> listarTodosOsDependentes(){
+        return this.service.todosOsDepentendes();
     }
 
     public String atualizar() {

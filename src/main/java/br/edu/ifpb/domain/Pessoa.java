@@ -53,41 +53,20 @@ public class Pessoa {
         return "{ 'cpf':'" + cpf + "', 'nome': '" + nome + "'}";
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.cpf);
-        hash = 17 * hash + Objects.hashCode(this.nome);
-        hash = 17 * hash + this.id;
-        hash = 17 * hash + Objects.hashCode(this.dependente);
-        return hash;
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Pessoa other = (Pessoa) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (!Objects.equals(this.nome,other.nome)) {
-            return false;
-        }
-        if (!Objects.equals(this.cpf,other.cpf)) {
-            return false;
-        }
-        if (!Objects.equals(this.dependente,other.dependente)) {
-            return false;
-        }
-        return true;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Dependente getDependente() {
+        return dependente;
+    }
+
+    public void setDependente(Dependente dependente) {
+        this.dependente = dependente;
     }
 
 }
