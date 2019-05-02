@@ -2,7 +2,7 @@ package br.edu.ifpb.infra.jsf.converter;
 
 import br.edu.ifpb.domain.Dependente;
 import br.edu.ifpb.domain.Pessoas;
-import br.edu.ifpb.infra.memory.PessoasEmMemoria;
+import br.edu.ifpb.infra.persistence.memory.PessoasEmMemoria;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;

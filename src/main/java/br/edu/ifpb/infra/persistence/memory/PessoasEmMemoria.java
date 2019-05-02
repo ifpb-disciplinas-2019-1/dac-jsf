@@ -1,4 +1,4 @@
-package br.edu.ifpb.infra.memory;
+package br.edu.ifpb.infra.persistence.memory;
 
 import br.edu.ifpb.domain.*;
 import java.time.LocalDate;

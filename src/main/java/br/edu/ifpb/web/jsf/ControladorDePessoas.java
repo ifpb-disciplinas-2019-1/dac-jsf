@@ -3,7 +3,7 @@ package br.edu.ifpb.web.jsf;
 import br.edu.ifpb.domain.Dependente;
 import br.edu.ifpb.domain.Pessoa;
 import br.edu.ifpb.domain.Pessoas;
-import br.edu.ifpb.infra.memory.PessoasEmMemoria;
+import br.edu.ifpb.infra.persistence.memory.PessoasEmMemoria;
 import java.io.Serializable;
 import java.util.List;
 //import javax.faces.bean.RequestScoped;
